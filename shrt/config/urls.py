@@ -6,8 +6,8 @@ urlpatterns = [
         regex=r'^admin/',
         view=admin.site.urls
     ),
-    # url(
-    #     regex=r'^',
-    #     view=include('core.urls')
-    # )
+    url(
+        regex=r'^',
+        view=include('core.urls')
+    )
 ]
