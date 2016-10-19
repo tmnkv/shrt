@@ -2,7 +2,7 @@
     <form method="POST" id="make-short">
         {% csrf_token %}
         <label for="long_url">Вставьте URL сюда</label>
-        <input type="text" id="long_url" name="long_url" value="{{ form.url }}">
+        <input type="text" id="long_url" name="long_url" value="{{ form.primary }}">
         <input type="submit" id="submit" value="Создать сокращённую ссылку">
     </form>
 </div>
