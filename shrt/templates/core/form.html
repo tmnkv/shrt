@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<div class="form">
+    <form method="POST" id="make-short">
+        {% csrf_token %}
+        <label for="long_url">Вставьте URL сюда</label>
+        <input type="text" id="long_url" name="long_url" value="{{ form.url }}">
+        <input type="submit" id="submit" value="Создать сокращённую ссылку">
+    </form>
+</div>
