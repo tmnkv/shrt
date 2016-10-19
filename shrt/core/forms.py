@@ -7,4 +7,3 @@ class UrlCreateForm(forms.ModelForm):
     class Meta:
         model = URL
         fields = ['primary',]
-        
