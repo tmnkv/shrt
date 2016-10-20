@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from core.views import IndexView, UrlCreateView, UrlRedirectView
+from core.views import IndexView, UrlListView, UrlCreateView, UrlRedirectView
 
 
 urlpatterns = [
@@ -18,5 +18,10 @@ urlpatterns = [
         regex=r'^(?P<url>\w{7})/$',
         view=UrlRedirectView.as_view(),
         name='url_redirect'
-    )
+    ),
+    url(
+        regex=r'^stats/$',
+        view=UrlListView.as_view(),
+        name='url_list'
+    ),
 ]
