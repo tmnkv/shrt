@@ -3,8 +3,7 @@ from unipath import Path
 
 BASE_DIR = Path(__file__).ancestor(3)
 
-# SECRET_KEY = os.environ['SECRET_KEY']
-SECRET_KEY = 'jhkgfbhaewrbhgure'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -46,6 +45,22 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR.child("templates")],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
     },
 ]
 
