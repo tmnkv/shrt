@@ -2,7 +2,7 @@ from random import SystemRandom, choice
 from string import ascii_letters as letters
 from string import digits
 
-from django.views.generic import TemplateView, CreateView, RedirectView
+from django.views.generic import TemplateView, ListView, CreateView, RedirectView
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 
@@ -16,6 +16,10 @@ SITE_URL = 'http://sh.idaproject.com/'
 
 class IndexView(TemplateView):
     template_name = 'core/index.html'
+
+
+class UrlListView(ListView):
+    model = URL
 
 
 class UrlCreateView(InvalidMixin, CreateView):
