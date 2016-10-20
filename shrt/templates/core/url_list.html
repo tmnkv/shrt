@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <table class="url__table">
+        <tr>
+            <th>Начальный</th>
+            <th>Короткий</th>
+            <th>Переходов</th>
+        </tr>
+
+        {% for url in object_list %}
+            <tr>
+                <td>{{ url.primary|truncatechars:60 }}</td>
+                <td>{{ url.shorten }}</td>
+                <td>{{ url.counter }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
