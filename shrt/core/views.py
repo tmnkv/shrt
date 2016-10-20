@@ -2,12 +2,16 @@ from random import SystemRandom, choice
 from string import ascii_letters as letters
 from string import digits
 
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, RedirectView
+from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 
 from core.models import URL
 from core.forms import UrlCreateForm
 from core.mixins import InvalidMixin
+
+
+SITE_URL = 'http://sh.idaproject.com/'
 
 
 class IndexView(TemplateView):
@@ -29,7 +33,16 @@ class UrlCreateView(InvalidMixin, CreateView):
         })
 
     def generate_short_link(self):
-        link = 'http://sh.idaproject.com/' + ''.join(SystemRandom().choice(letters + digits) for _ in range(7))
+        link = SITE_URL + ''.join(SystemRandom().choice(letters + digits) for _ in range(7))
         if URL.objects.filter(shorten=link).exists():
-            link = generate_short_link()
+            link = self.generate_short_link()
         return link
+
+
+class UrlRedirectView(RedirectView):
+
+    def get_redirect_url(self, url, *args, **kwargs):
+        shorten = SITE_URL + url
+        url = get_object_or_404(URL, shorten=shorten)
+        url.counter_plus()
+        return url.primary
