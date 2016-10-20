@@ -24,6 +24,7 @@ class URL(models.Model):
 
     def counter_plus(self):
         self.counter += 1
+        self.save()
 
     def __str__(self):
         return '{0} => {1}'.format(
