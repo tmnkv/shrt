@@ -8,7 +8,7 @@ from django.http import JsonResponse
 
 from core.models import URL
 from core.forms import UrlCreateForm
-from core.mixins import InvalidMixin
+from core.mixins import InvalidMixin, SendEmailMixin
 
 
 SITE_URL = 'http://sh.idaproject.com/'
@@ -22,7 +22,7 @@ class UrlListView(ListView):
     model = URL
 
 
-class UrlCreateView(InvalidMixin, CreateView):
+class UrlCreateView(InvalidMixin, SendEmailMixin, CreateView):
     model = URL
     form_class = UrlCreateForm
 
@@ -32,9 +32,14 @@ class UrlCreateView(InvalidMixin, CreateView):
         url.primary = primary_url
         url.shorten = self.generate_short_link()
         url.save()
+        self.send_mail(
+            'Добавлен URL',
+            'core/mail.html',
+            url)  # TODO переделать
         return JsonResponse({
             'shorten' : url.shorten
         })
+
 
     def generate_short_link(self):
         link = SITE_URL + ''.join(SystemRandom().choice(letters + digits) for _ in range(7))
