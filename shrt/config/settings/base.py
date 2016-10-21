@@ -1,6 +1,8 @@
 import os
 from unipath import Path
 
+from config.celery import *
+
 BASE_DIR = Path(__file__).ancestor(3)
 
 SECRET_KEY = os.environ['SECRET_KEY']
@@ -77,3 +79,14 @@ USE_TZ = True
 STATICFILES_DIRS = [BASE_DIR.child('static')]
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR.child("collect_static")
+
+# mail
+EMAIL_HOST = 'mail.nic.ru'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+MAIL_TO = ['at@idaproject.com']
+MAIL_FROM = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
