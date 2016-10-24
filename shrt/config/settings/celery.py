@@ -1,4 +1,5 @@
-BROKER URL = 'ampq://guest@localhost//'
+BROKER URL = 'amqp://guest@localhost//'
+CELERY_RESULT_BACKEND = 'amqp://'
 
 CELERY_TIMEZONE = 'Europe/Moscow'
 
