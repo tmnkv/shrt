@@ -81,7 +81,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR.child("collect_static")
 
 # mail
-EMAIL_HOST = 'mail.nic.ru'
+EMAIL_HOST = 'smtp.yandex.com'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
