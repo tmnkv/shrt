@@ -11,7 +11,6 @@ class InvalidMixin:
 
 class SendEmailMixin:
     def send_mail(self, subject, template, obj):
-        print("I'm in")
         message = render_to_string(template, {'obj': obj})
         print(message)
         send_email_task.delay(subject, message)
