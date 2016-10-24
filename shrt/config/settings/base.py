@@ -1,7 +1,7 @@
 import os
 from unipath import Path
 
-from config.celery import *
+from config.settings.celery import *
 
 BASE_DIR = Path(__file__).ancestor(3)
 
