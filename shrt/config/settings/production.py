@@ -3,9 +3,8 @@ from config.settings.base import *
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'sh.idaproject',
-    '192.241.128.127',
-    '127.0.0.1:8000'
+    'sh.idaproject.com',
+    'www.sh.idaproject.com'
 ]
 
 DATABASES = {
