@@ -36,3 +36,4 @@ class URL(models.Model):
     class Meta:
         verbose_name = 'URL'
         verbose_name_plural = 'URLs'
+        ordering = ['-counter']
