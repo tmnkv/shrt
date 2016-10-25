@@ -3,13 +3,17 @@ form {
     margin-top: 200px;
 }
 
-th, td {
-    padding-right: 50px;
+table {
+    margin-left:auto;
+    margin-right:auto;
 }
 
-table {
-    margin-top: 0;
-    text-align: left;
+th {
+    text-align: center;
+}
+
+th, td {
+    padding-right: 50px;
 }
 
 td:nth-child(3) {
