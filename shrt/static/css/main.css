@@ -1,7 +1,19 @@
-.content {
+form {
     text-align: center;
-    vertical-align: middle;
     margin-top: 200px;
+}
+
+th, td {
+    padding-right: 50px;
+}
+
+table {
+    margin-top: 0;
+    text-align: left;
+}
+
+td:nth-child(3) {
+    text-align: center;
 }
 
 .result__text,

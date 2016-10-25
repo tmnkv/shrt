@@ -4,5 +4,10 @@
         <label for="long_url">Вставьте URL сюда</label>
         <input type="text" id="long_url" name="long_url" value="{{ form.primary }}">
         <input type="submit" id="submit" value="Создать сокращённую ссылку">
+        <div class="result">
+            <p class="result__text">Здесь появится сокращенная ссылка  ----->  </p>
+            <p class="result__url"></p>
+        </div>
+        <a href="{% url 'stats' %}">Статистика</a>
     </form>
 </div>

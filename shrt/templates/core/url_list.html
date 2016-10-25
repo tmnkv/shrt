@@ -10,7 +10,7 @@
 
         {% for url in object_list %}
             <tr>
-                <td>{{ url.primary|truncatechars:60 }}</td>
+                <td>{{ url.primary|truncatechars:100 }}</td>
                 <td>{{ url.shorten }}</td>
                 <td>{{ url.counter }}</td>
             </tr>
